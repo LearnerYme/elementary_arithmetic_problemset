@@ -1,0 +1,33 @@
+{    
+    "filename" : "./problemset.txt",
+    "ansname" : "./answer.txt",
+    "unitary" : false,
+    "shuffle" : false,
+    "int_plus" : {
+                "num" : 20,
+                "low" : 0,
+                "high" : 100,
+                "maximum" : 100
+            },
+    "int_subtract" : {
+                "num" : 20,
+                "low" : 1,
+                "high" : 100,
+                "neg" : true
+            },
+    "int_multiply" : {
+                "num" : 10,
+                "low" : 1,
+                "high" : 100,
+                "maximum" : 10000,
+                "marker" : "x"
+            },
+    "int_divide" : {
+                "num" : 10,
+                "maximum" : 100,
+                "maximum_divisor" : 10,
+                "decimal" : false,
+                "marker" : "÷",
+                "mod" : true
+            }
+}
