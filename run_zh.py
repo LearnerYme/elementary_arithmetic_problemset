@@ -17,9 +17,6 @@ int_subtract = params['int_subtract']
 int_multiply = params['int_multiply']
 int_divide = params['int_divide']
 
-if type(unitary_json) is not int:
-    unitary_json = 0
-
 #initializing windows
 win = tk.Tk()
 win.title('小学生算术题生成器 - Yme')
@@ -52,11 +49,18 @@ ansname_entry.grid(row=1, column=1)
 frame_us = tk.Frame(win)
 frame_us.pack()
 unitary = tk.BooleanVar()
+unitary_value = tk.IntVar()
+if unitary_json is False:
+    unitary.set(False)
+    unitary_value.set(0)
+else:
+    unitary.set(True)
+    unitary_value.set(unitary_json)
 shuffle = tk.BooleanVar()
 unitary.set(unitary_json)
 shuffle.set(shuffle_json)
 unitary_check = tk.Checkbutton(frame_us, text='统一题目数量', variable=unitary)
-unitary_entry = tk.Entry(frame_us, textvariable=unitary_json, width=10)
+unitary_entry = tk.Entry(frame_us, textvariable=unitary_value, width=10)
 unitary_label = tk.Label(frame_us, text='勾选此项后，题目数量为0的题目类型不受影响')
 shuffle_check = tk.Checkbutton(frame_us, text='打乱题目顺序', variable=shuffle)
 unitary_entry.insert(tk.INSERT, unitary_json)
@@ -236,7 +240,10 @@ def save_cmd():
         conf_temp['filename'] = filename.get()
     conf_temp['ansname'] = ansname.get()
 
-    conf_temp['unitary'] = unitary.get()
+    if unitary.get() is False:
+        conf_temp['unitary'] = unitary.get()
+    else:
+        conf_temp['unitary'] = unitary_value.get()
     conf_temp['shuffle'] = shuffle.get()
 
     conf_temp['int_plus']['num'] = plus_num_int.get()
@@ -360,45 +367,5 @@ def about_cmd():
     return
 about_buttom = tk.Button(win, text='关于本工具', command=about_cmd)
 about_buttom.pack()
-
-
-
-'''
-#分数记录log
-score_list0=[0,0,0,0]
-score_final=[0,0,0,0]
-score = tk.Listbox(win, selectmode='BROWSE', width=53)
-score.insert(0,score_format(score_list0))
-score.pack()
-tk.Label(win, text='总分数').pack()
-score_f = tk.Listbox(win, selectmode='BROWSE', width=53, height=1)
-score_f.insert(0,score_format(score_final))
-score_f.pack()
-#分数记录
-frm1 = tk.Frame(win)
-frm1.pack()
-s1 = tk.StringVar()
-s2 = tk.StringVar()
-s3 = tk.StringVar()
-s4 = tk.StringVar()
-ss1 = tk.Entry(frm1, textvariable=s1, width=12)
-ss2 = tk.Entry(frm1, textvariable=s2, width=12)
-ss3 = tk.Entry(frm1, textvariable=s3, width=12)
-ss4 = tk.Entry(frm1, textvariable=s4, width=12)
-ss1.grid(row=0,column=0)
-ss2.grid(row=0,column=1)
-ss3.grid(row=0,column=2)
-ss4.grid(row=0,column=3)
-tk.Button(win, text='提交分数', command=submit).pack()
-#信息窗口
-InfoWin = tk.Text(win ,height=25)
-InfoWin.pack()
-#删除条目菜单
-menu_delete = tk.Menu(win)
-menu_delete.add_command(label='删除此条记录', command=dlt_log)
-score.bind('<Double-Button-1>',show_dltMenu)
-#打印结果
-tk.Button(win, text='打印结果', command=save_log).pack()
-'''
 
 win.mainloop()

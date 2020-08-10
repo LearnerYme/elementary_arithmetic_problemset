@@ -1,4 +1,4 @@
-Author: Yme | Current version: 1.0
+Author: Yme | Current version: 1.1
 You can find this repository on Github: https://github.com/LearnerYme/elementary_arithmetic_problemset
 
 MIT License
