@@ -61,7 +61,6 @@ unitary_check = tk.Checkbutton(frame_us, text='unify the number of problems', va
 unitary_entry = tk.Entry(frame_us, textvariable=unitary_value, width=10)
 unitary_label = tk.Label(frame_us, text='those problem numbers = 0 will not be affected')
 shuffle_check = tk.Checkbutton(frame_us, text='shuffle problems', variable=shuffle)
-unitary_entry.insert(tk.INSERT, unitary_json)
 unitary_check.grid(row=0, column=0)
 unitary_entry.grid(row=0, column=1)
 unitary_label.grid(row=0, column=2)

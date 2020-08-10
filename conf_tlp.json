@@ -1,7 +1,7 @@
 {    
     "filename" : "./problemset.txt",
     "ansname" : "./answer.txt",
-    "unitary" : false,
+    "unitary" : 15,
     "shuffle" : false,
     "int_plus" : {
                 "num" : 20,

@@ -63,7 +63,6 @@ unitary_check = tk.Checkbutton(frame_us, text='统一题目数量', variable=uni
 unitary_entry = tk.Entry(frame_us, textvariable=unitary_value, width=10)
 unitary_label = tk.Label(frame_us, text='勾选此项后，题目数量为0的题目类型不受影响')
 shuffle_check = tk.Checkbutton(frame_us, text='打乱题目顺序', variable=shuffle)
-unitary_entry.insert(tk.INSERT, unitary_json)
 unitary_check.grid(row=0, column=0)
 unitary_entry.grid(row=0, column=1)
 unitary_label.grid(row=0, column=2)
